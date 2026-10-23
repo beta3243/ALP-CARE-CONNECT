@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
+import { Manrope } from 'next/font/google';
 import './globals.css';
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+  variable: '--font-manrope',
+});
 
 export const metadata: Metadata = {
   title: 'ALP CareConnect — Luxury Local Support for Your Home & Family in Chennai',
@@ -43,13 +51,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${manrope.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
-      <body className="antialiased bg-[#F7F7F5] text-[#16202A] min-h-screen">
-        {children}
-      </body>
+      <body className={manrope.className}>{children}</body>
     </html>
   );
 }
